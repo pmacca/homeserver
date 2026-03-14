@@ -29,6 +29,20 @@
 Proxmox hosts VMs and LXC containers used for the home server
 environment.
 
+### Services on Proxmox Host
+
+**Glances** — system monitoring API used by Homepage dashboard.
+
+  Item          Value
+  ------------- -------------------------------------------
+  Port          `61208`
+  URL           `http://192.168.86.10:61208`
+  Service       `glances.service` (systemd)
+  Mode          Web server with UI (`-w`)
+  Bind          `0.0.0.0:61208`
+
+Provides CPU, RAM, and disk metrics to Homepage via REST API.
+
 ### VMs and Containers
 
   ID    Type   Name             IP
