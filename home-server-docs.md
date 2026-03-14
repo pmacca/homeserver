@@ -38,7 +38,7 @@ environment.
   Port          `61208`
   URL           `http://192.168.86.10:61208`
   Service       `glances.service` (systemd)
-  Mode          Web server with UI (`-w`)
+  Mode          API only (`-w --disable-webui`)
   Bind          `0.0.0.0:61208`
 
 Provides CPU, RAM, and disk metrics to Homepage via REST API.
