@@ -104,7 +104,7 @@ Docker host located at:
   qBittorrent   8080   http://192.168.86.13:8080
   Portainer     9000   http://192.168.86.13:9000  (admin: `admin`)
   FlareSolverr  8191   http://192.168.86.13:8191
-  Uptime Kuma   3002   http://192.168.86.13:3002  (admin: `admin`, non-standard pw)
+
 
 ------------------------------------------------------------------------
 
@@ -172,7 +172,6 @@ Pi-hole resolves internal hostnames to the nginx reverse proxy
   `bazarr.mcmanus.net.au`          `192.168.86.6`
   `qbittorrent.mcmanus.net.au`     `192.168.86.6`
   `portainer.mcmanus.net.au`       `192.168.86.6`
-  `uptime.mcmanus.net.au`          `192.168.86.6`
   `pihole.mcmanus.net.au`          `192.168.86.5`
   `proxmox.mcmanus.net.au`         `192.168.86.10`
 
@@ -201,7 +200,7 @@ LXC container providing friendly local URLs for media services.
   `jellyfin.mcmanus.net.au`        `http://192.168.86.13:8096`
   `overseerr.mcmanus.net.au`       `http://192.168.86.13:5055`
   `portainer.mcmanus.net.au`       `http://192.168.86.13:9000`
-  `uptime.mcmanus.net.au`          `http://192.168.86.13:3002`
+
 
 Works in combination with Pi-hole local DNS entries that point these
 hostnames to `192.168.86.6`.
@@ -420,7 +419,7 @@ containers.
 
 -   Docker auto-update automation
 
--   ~~Service health monitoring~~ (done - Uptime Kuma)
+-   Service health monitoring
 -   ~~Proxmox API token integration~~ (done)
 -   Migrate Cloudflare Tunnel to fully local config management (recreate tunnel to remove remote/dashboard control)
 -   Move HA Zigbee into its own LXC container
