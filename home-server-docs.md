@@ -47,15 +47,15 @@ Provides CPU, RAM, and disk metrics to Homepage via REST API.
 
   ID    Type   Name             IP
   ----- ------ ---------------- ------------------
+  102   lxc    pihole           `192.168.86.5`
+  107   lxc    nginx            `192.168.86.6`
   100   qemu   home-assistant   `192.168.86.11`
   101   lxc    cloudflared      `192.168.86.12`
-  102   lxc    pihole           `192.168.86.5`
   103   lxc    media            `192.168.86.13`
   104   lxc    vaultwarden      `192.168.86.14`
   105   lxc    mqtt             `192.168.86.15`
-  106   lxc    racing           `192.168.86.19`
-  107   lxc    nginx            `192.168.86.6`
   108   qemu   openclaw         `192.168.86.16`
+  106   lxc    racing           `192.168.86.19`
 
 ------------------------------------------------------------------------
 
@@ -156,6 +156,23 @@ Custom application.
   App Port       `8000`
   Portainer      `9000`
   Public URL     `racing.mcmanus.net.au`
+
+------------------------------------------------------------------------
+
+## OpenClaw
+
+AI agent VM — personal assistant via Telegram, with Home Assistant and Google Calendar integrations.
+
+  Item       Value
+  ---------- ----------------------------
+  IP         `192.168.86.16`
+  Platform   QEMU VM (Ubuntu 24.04.3)
+  Username   `paul`
+  Password   the usual
+  SSH        `ssh paul@192.168.86.16`
+  Dashboard  `http://192.168.86.16:18789`
+
+See `openclaw-plan.md` for full architecture and setup notes.
 
 ------------------------------------------------------------------------
 
