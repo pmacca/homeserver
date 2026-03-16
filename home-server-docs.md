@@ -100,6 +100,7 @@ a QEMU VM (not LXC like the other services).
   `homepage.mcmanus.net.au`    Homepage dashboard
   `racing.mcmanus.net.au`      Racing app
   `deploy.mcmanus.net.au`      Portainer (racing host)
+  `openclaw.mcmanus.net.au`    OpenClaw dashboard (Cloudflare Access protected)
 
 ### Adding New Routes
 
@@ -184,7 +185,7 @@ AI agent VM — personal assistant via Telegram, with Home Assistant and Google 
   Username    `paul`
   Password    the usual
   SSH         `ssh paul@192.168.86.16`
-  Dashboard   `http://192.168.86.16:18789` (via SSH tunnel or Tailscale)
+  Dashboard   `https://openclaw.mcmanus.net.au` (Cloudflare Access) or `http://192.168.86.16:18789` (LAN)
   Version     OpenClaw 2026.3.13
 
 ### Setup
