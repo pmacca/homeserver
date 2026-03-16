@@ -79,11 +79,15 @@ a QEMU VM (not LXC like the other services).
 ## Cloudflare Tunnel
 
   Item          Value
-  ------------- -------------------------------------------
+  ------------- -----------------------------------------------------------
   IP            `192.168.86.12`
   Platform      LXC container
   Purpose       Secure public access to internal services
   Config File   `/etc/cloudflared/config.yml`
+  Tunnel Name   `home-server`
+  Tunnel ID     `6a704994-c922-41b3-8f21-a9cb08218054`
+  Credentials   `/root/.cloudflared/6a704994-c922-41b3-8f21-a9cb08218054.json`
+  Management    **Local config only** — not dashboard-managed. `config.yml` is authoritative.
 
 ### Exposed Services
 
@@ -96,6 +100,16 @@ a QEMU VM (not LXC like the other services).
   `homepage.mcmanus.net.au`    Homepage dashboard
   `racing.mcmanus.net.au`      Racing app
   `deploy.mcmanus.net.au`      Portainer (racing host)
+
+### Adding New Routes
+
+Edit `/etc/cloudflared/config.yml` on `.12`, add the ingress rule, then:
+
+    systemctl restart cloudflared
+
+DNS CNAMEs can be created via the Cloudflare API (token in `.env`) or:
+
+    cloudflared tunnel route dns home-server <hostname>
 
 
 ------------------------------------------------------------------------
@@ -530,5 +544,5 @@ Proxmox backups are configured through the Proxmox web UI.
 
 -   Service health monitoring
 -   ~~Proxmox API token integration~~ (done)
--   Migrate Cloudflare Tunnel to fully local config management (recreate tunnel to remove remote/dashboard control)
+-   ~~Migrate Cloudflare Tunnel to fully local config management~~ (done — new tunnel `home-server`, local config only)
 -   Move HA Zigbee into its own LXC container
