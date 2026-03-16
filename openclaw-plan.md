@@ -109,7 +109,7 @@ Firewall: outbound internet + .11:8123 only
 - [x] Run `openclaw onboard` — gateway daemon installed, gpt-4o selected
 - [x] Configure Telegram channel — bot active, restricted to Paul's user ID
 - [x] Document in `home-server-docs.md`
-- [ ] Set Proxmox firewall rules on the VM
+- [x] Set Proxmox firewall rules on the VM
 - [ ] Create scoped HA user + install OpenClawHomeAssistant MCP add-on
 - [ ] Configure Google Calendar OAuth (dedicated GCP project)
 - [ ] Migrate to WhatsApp Web bridge (future — family on WhatsApp)

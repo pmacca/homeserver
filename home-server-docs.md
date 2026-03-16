@@ -203,6 +203,31 @@ Or use Tailscale to reach `192.168.86.16:18789` directly.
     ssh paul@192.168.86.16
     openclaw tui
 
+### Firewall
+
+Proxmox VM-level firewall enabled (`/etc/pve/firewall/108.fw`).
+
+  Direction   Policy
+  ----------- -------
+  Inbound     DROP (default)
+  Outbound    ACCEPT (default)
+
+Inbound rules:
+
+  Port    Protocol   Source              Purpose
+  ------- ---------- ------------------- ---------
+  22      TCP        `192.168.86.0/24`   SSH
+  18789   TCP        `192.168.86.0/24`   Dashboard
+
+Outbound rules:
+
+  Destination          Port   Protocol   Action   Purpose
+  -------------------- ------ ---------- -------- ----------------
+  `192.168.86.5`       53     UDP/TCP    ACCEPT   DNS (Pi-hole)
+  `192.168.86.11`      8123   TCP        ACCEPT   Home Assistant
+  `192.168.86.0/24`    any    any        DROP     Block rest of LAN
+  Internet             any    any        ACCEPT   (default policy)
+
 ### Planned Integrations
 
 -   Home Assistant (scoped user + MCP add-on)
