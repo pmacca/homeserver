@@ -103,15 +103,16 @@ Firewall: outbound internet + .11:8123 only
 
 ## Implementation Steps
 
-1. Create LXC container (ID 108, IP .20) on Proxmox
-2. Install Docker inside LXC
-3. Set Proxmox firewall rules on the container
-4. Deploy OpenClaw via Docker Compose
-5. Configure WhatsApp integration
-6. Create scoped HA user + install OpenClawHomeAssistant MCP add-on
-7. Configure Google Calendar OAuth (dedicated GCP project)
-8. Test end-to-end
-9. Document in `home-server-docs.md`
+- [x] Create QEMU VM (ID 108, IP 192.168.86.16) on Proxmox — Ubuntu 24.04.3
+- [x] Install Docker (v29.3.0)
+- [x] Install OpenClaw 2026.3.13 via official install script
+- [x] Run `openclaw onboard` — gateway daemon installed, gpt-4o selected
+- [x] Configure Telegram channel — bot active, restricted to Paul's user ID
+- [x] Document in `home-server-docs.md`
+- [ ] Set Proxmox firewall rules on the VM
+- [ ] Create scoped HA user + install OpenClawHomeAssistant MCP add-on
+- [ ] Configure Google Calendar OAuth (dedicated GCP project)
+- [ ] Migrate to WhatsApp Web bridge (future — family on WhatsApp)
 
 ---
 

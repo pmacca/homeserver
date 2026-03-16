@@ -161,18 +161,54 @@ Custom application.
 
 ## OpenClaw
 
-AI agent VM — personal assistant via Telegram, with Home Assistant and Google Calendar integrations.
+AI agent VM — personal assistant via Telegram, with Home Assistant and Google Calendar integrations (planned).
 
-  Item       Value
-  ---------- ----------------------------
-  IP         `192.168.86.16`
-  Platform   QEMU VM (Ubuntu 24.04.3)
-  Username   `paul`
-  Password   the usual
-  SSH        `ssh paul@192.168.86.16`
-  Dashboard  `http://192.168.86.16:18789`
+  Item        Value
+  ----------- ---------------------------------------------------
+  IP          `192.168.86.16`
+  Platform    QEMU VM (Ubuntu 24.04.3)
+  Username    `paul`
+  Password    the usual
+  SSH         `ssh paul@192.168.86.16`
+  Dashboard   `http://192.168.86.16:18789` (via SSH tunnel or Tailscale)
+  Version     OpenClaw 2026.3.13
 
-See `openclaw-plan.md` for full architecture and setup notes.
+### Setup
+
+-   Installed via official install script (npm-based, Node.js 22)
+-   Binary at `/home/paul/.npm-global/bin/openclaw`
+-   PATH set in `~/.bashrc`
+-   Gateway runs as a system daemon (`openclaw onboard --install-daemon`)
+-   Workspace at `~/openclaw`
+-   Config at `~/.openclaw`
+
+### LLM
+
+-   Provider: OpenAI
+-   Model: `gpt-4o`
+
+### Channels
+
+-   **Telegram**: active — bot connected, restricted to Paul's user ID only
+
+### Laptop Access
+
+    ssh -L 18789:localhost:18789 paul@192.168.86.16
+    # then open http://localhost:18789 in browser
+
+Or use Tailscale to reach `192.168.86.16:18789` directly.
+
+### TUI
+
+    ssh paul@192.168.86.16
+    openclaw tui
+
+### Planned Integrations
+
+-   Home Assistant (scoped user + MCP add-on)
+-   Google Calendar (`calendar.events` scope)
+
+See `openclaw-plan.md` for full architecture and security notes.
 
 ------------------------------------------------------------------------
 
