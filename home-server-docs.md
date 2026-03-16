@@ -512,8 +512,15 @@ router handles routing.
 
 # Backups
 
-Proxmox backups are configured through the Proxmox web UI for VMs and
-containers.
+Proxmox backups are configured through the Proxmox web UI.
+
+  Item        Value
+  ----------- -------------------------------------------
+  Schedule    Daily at `02:00`
+  Storage     `ssd-cheryl`
+  Retention   3 daily, 3 weekly
+  Selection   All VMs and containers
+  Node        All
 
 ------------------------------------------------------------------------
 
