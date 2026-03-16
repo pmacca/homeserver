@@ -228,10 +228,19 @@ Outbound rules:
   `192.168.86.0/24`    any    any        DROP     Block rest of LAN
   Internet             any    any        ACCEPT   (default policy)
 
-### Planned Integrations
+### Integrations
+
+#### Google Calendar
+-   Tool: `gog` CLI v0.12.0 (steipete/gogcli), installed at `/usr/local/bin/gog`
+-   Account: `mcmanus.paul@gmail.com`
+-   Scope: `calendar` (read/write events)
+-   Credentials: `~/.config/gogcli/credentials.json`
+-   Keyring: file-based, passphrase set via `GOG_KEYRING_PASSWORD` in `~/.bashrc`
+-   Default account set via `GOG_ACCOUNT` in `~/.bashrc`
+
+#### Planned
 
 -   Home Assistant (scoped user + MCP add-on)
--   Google Calendar (`calendar.events` scope)
 
 See `openclaw-plan.md` for full architecture and security notes.
 

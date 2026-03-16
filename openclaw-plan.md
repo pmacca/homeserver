@@ -111,7 +111,7 @@ Firewall: outbound internet + .11:8123 only
 - [x] Document in `home-server-docs.md`
 - [x] Set Proxmox firewall rules on the VM
 - [ ] Create scoped HA user + install OpenClawHomeAssistant MCP add-on
-- [ ] Configure Google Calendar OAuth (dedicated GCP project)
+- [x] Configure Google Calendar OAuth — gog v0.12.0 installed, mcmanus.paul@gmail.com authenticated
 - [ ] Migrate to WhatsApp Web bridge (future — family on WhatsApp)
 
 ---
