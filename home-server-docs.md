@@ -55,6 +55,7 @@ Provides CPU, RAM, and disk metrics to Homepage via REST API.
   105   lxc    mqtt             `192.168.86.15`
   106   lxc    racing           `192.168.86.19`
   107   lxc    nginx            `192.168.86.6`
+  108   qemu   openclaw         `192.168.86.16`
 
 ------------------------------------------------------------------------
 
