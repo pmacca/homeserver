@@ -87,7 +87,7 @@ a QEMU VM (not LXC like the other services).
   Tunnel Name   `home-server`
   Tunnel ID     `6a704994-c922-41b3-8f21-a9cb08218054`
   Credentials   `/root/.cloudflared/6a704994-c922-41b3-8f21-a9cb08218054.json`
-  Management    **Local config only** — not dashboard-managed. `config.yml` is authoritative.
+  Management    **Local config only** — `config.yml` is authoritative. Old dashboard tunnel deleted.
 
 ### Exposed Services
 
