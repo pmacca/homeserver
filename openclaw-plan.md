@@ -113,7 +113,7 @@ Firewall: outbound internet + .11:8123 only
 - [ ] Create scoped HA user + install OpenClawHomeAssistant MCP add-on
 - [x] Configure Google Calendar OAuth — gog v0.12.0 installed, mcmanus.paul@gmail.com authenticated
 - [x] Expose dashboard via Cloudflare Tunnel (`openclaw.mcmanus.net.au`) — live, HTTPS working
-- [ ] Add Cloudflare Access policy — restrict to `mcmanus.paul@gmail.com` only
+- [x] Add Cloudflare Access policy — restricted to `mcmanus.paul@gmail.com`, browser paired
 - [ ] Migrate to WhatsApp Web bridge (future — family on WhatsApp)
 
 ---

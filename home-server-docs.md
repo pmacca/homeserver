@@ -200,18 +200,19 @@ AI agent VM — personal assistant via Telegram, with Home Assistant and Google 
 ### LLM
 
 -   Provider: OpenAI
--   Model: `gpt-4o`
+-   Model: `gpt-5` (set during onboarding — upgrade path to Claude Sonnet 4.6)
+-   Tools profile: `full`
 
 ### Channels
 
 -   **Telegram**: active — bot connected, restricted to Paul's user ID only
 
-### Laptop Access
+### Dashboard Access
 
-    ssh -L 18789:localhost:18789 paul@192.168.86.16
-    # then open http://localhost:18789 in browser
-
-Or use Tailscale to reach `192.168.86.16:18789` directly.
+-   **Remote**: `https://openclaw.mcmanus.net.au` — protected by Cloudflare Access (Google login: `mcmanus.paul@gmail.com`) + gateway token
+-   **LAN**: `http://192.168.86.16:18789`
+-   Gateway token: stored in `~/.openclaw/openclaw.json` (`gateway.auth.token`)
+-   First-time browser pairing required — approve via `openclaw devices approve <id>`
 
 ### TUI
 
