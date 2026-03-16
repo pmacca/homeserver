@@ -112,6 +112,7 @@ Firewall: outbound internet + .11:8123 only
 - [x] Set Proxmox firewall rules on the VM
 - [ ] Create scoped HA user + install OpenClawHomeAssistant MCP add-on
 - [x] Configure Google Calendar OAuth — gog v0.12.0 installed, mcmanus.paul@gmail.com authenticated
+- [ ] Expose dashboard via Cloudflare Tunnel (`openclaw.mcmanus.net.au`) with Cloudflare Access (Google login) for secure remote access — replaces SSH tunnel requirement
 - [ ] Migrate to WhatsApp Web bridge (future — family on WhatsApp)
 
 ---
