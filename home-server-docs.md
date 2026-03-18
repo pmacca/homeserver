@@ -128,7 +128,7 @@ Docker host located at:
   CPU           4 cores
   RAM           8 GiB
   Swap          2 GiB (increased from 512 MiB — 2026-03-18)
-  Swappiness    10 (set via `lxc.cgroup2.memory.swappiness` in Proxmox host config, requires container restart)
+  Swappiness    default (cgroup v2 does not support `memory.swappiness`; the `lxc.cgroup2.memory.swappiness` setting was removed as it prevented container startup)
   Boot Disk     32 GiB (`local-lvm`)
   Data Mount    `/mnt/pve/ssd-cheryl/media-data` → `/data`
 
