@@ -121,6 +121,17 @@ Docker host located at:
 
     192.168.86.13
 
+### Container Resources
+
+  Item          Value
+  ------------- -------------------------------------------
+  CPU           4 cores
+  RAM           8 GiB
+  Swap          2 GiB (increased from 512 MiB — 2026-03-18)
+  Swappiness    10 (set via `lxc.cgroup2.memory.swappiness` in Proxmox host config, requires container restart)
+  Boot Disk     32 GiB (`local-lvm`)
+  Data Mount    `/mnt/pve/ssd-cheryl/media-data` → `/data`
+
 ### Media Stack
 
   Service       Port   URL
@@ -393,6 +404,8 @@ Used for:
 ------------------------------------------------------------------------
 
 # Media Automation Flow
+
+**Important:** Jellyseerr requires a **default Sonarr server** to be set in Settings → Services, otherwise approved TV requests silently fail (see log warning: "There is no default Sonarr server configured").
 
     Jellyseerr
           │
