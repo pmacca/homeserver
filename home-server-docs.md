@@ -56,6 +56,7 @@ Provides CPU, RAM, and disk metrics to Homepage via REST API.
   105   lxc    mqtt             `192.168.86.15`
   108   qemu   openclaw         `192.168.86.16`
   106   lxc    racing           `192.168.86.19`
+  109   lxc    mcnotes          `192.168.86.17`
 
 ------------------------------------------------------------------------
 
@@ -270,6 +271,60 @@ Outbound rules:
 -   Home Assistant (scoped user + MCP add-on)
 
 See `openclaw-plan.md` for full architecture and security notes.
+
+------------------------------------------------------------------------
+
+## McNotes
+
+AI-powered daily work journal. Collects Slack, Google Calendar, Gmail, and Google Drive activity, runs through Claude to produce daily summaries in an Obsidian vault.
+
+  Item        Value
+  ----------- ---------------------------------------------------
+  IP          `192.168.86.17`
+  Platform    LXC container (ID 109, Ubuntu 24.04, unprivileged)
+  Username    `mcnotes`
+  SSH         `ssh mcnotes@192.168.86.17`
+  Resources   2 cores, 4 GiB RAM, 512 MiB swap, 32 GiB disk
+  Docker      Yes (mcnotes user in docker group)
+  Code        `/home/mcnotes/mcnotes-server/`
+  Vault       `/home/mcnotes/vault/`
+  Google creds  `/home/mcnotes/.config/mcnotes/`
+
+### Docker Services
+
+  Service       Purpose
+  ------------- ------------------------------------------
+  `run-daily`   One-off daily pipeline run
+  `cron`        Scheduler — runs daily at midnight Sydney time (13:00 UTC)
+
+### Deployment
+
+From Mac:
+
+    cd ~/code/McNotes/mcnotes-server
+    ./scripts/deploy.sh 192.168.86.17
+
+Or manually:
+
+    rsync -avz --exclude '.venv' --exclude '__pycache__' --exclude '.env' \
+      ~/code/McNotes/mcnotes-server/ mcnotes@192.168.86.17:/home/mcnotes/mcnotes-server/
+    ssh mcnotes@192.168.86.17 'cd mcnotes-server && docker compose build && docker compose up -d cron'
+
+### Syncthing
+
+Vault synced bidirectionally between Mac and server:
+
+- Mac: `~/code/McNotes/Vault/` ↔ Server: `/home/mcnotes/vault/`
+- Server-generated `.ai.md` files appear in Obsidian on the Mac
+- Ignore patterns: `.obsidian/workspace.json`
+
+### Data Sources
+
+- **Slack**: user token (`xoxp-...`), `search.messages` API
+- **Google Calendar**: OAuth2, non-recurring events only
+- **Gmail**: OAuth2, prioritizes replied-to emails
+- **Google Drive**: OAuth2 (metadata readonly), files modified by user
+- **Anthropic**: Claude Sonnet 4.6 for daily extraction
 
 ------------------------------------------------------------------------
 
